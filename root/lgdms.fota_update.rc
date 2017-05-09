@@ -1,0 +1,26 @@
+on fota-update
+    export PATH /sbin
+    export ANDROID_ROOT /system
+    export ANDROID_DATA /data
+    export EXTERNAL_STORAGE /sdcard
+
+    symlink /system/etc /etc
+
+    mkdir /sdcard
+    mkdir /system
+    mkdir /cust
+    mkdir /cache
+    mount /tmp /tmp tmpfs
+
+    #mount rootfs rootfs / rw remount
+
+
+# mount mmc partitions
+
+	mount_all /fota.fstab
+
+	wait /dev/graphics/fb0
+	wait /dev/tty0
+
+
+	mkdir /cache/fota
