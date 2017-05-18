@@ -16,7 +16,7 @@
 # inherit from common msm8916
 -include device/lge/msm8916-common/BoardConfigCommon.mk
 
-TARGET_KERNEL_CONFIG := m216_global_com_defconfig
+TARGET_KERNEL_CONFIG := m216n_kt_kr_defconfig
 BOARD_KERNEL_SEPARATED_DT := true
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
