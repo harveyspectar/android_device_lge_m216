@@ -24,7 +24,7 @@ TARGET_OTA_ASSERT_DEVICE := m216 #TODO: add more models
 
 #Kernel TODO:fix this
 TARGET_KERNEL_CONFIG := m216n_kt_kr_defconfig
-TARGET_KERNEL_SOURCE := kernel/lge/m216
+TARGET_KERNEL_SOURCE := kernel/lge/msm8916
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -49,4 +49,4 @@ BOARD_NFC_CHIPSET := pn547
 BOARD_NFC_DEVICE := "/dev/pn547"
 
 # Properties
-TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
+#TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
