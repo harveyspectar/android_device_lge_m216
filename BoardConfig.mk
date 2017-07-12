@@ -47,6 +47,3 @@ TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 # NFC
 BOARD_NFC_CHIPSET := pn547
 BOARD_NFC_DEVICE := "/dev/pn547"
-
-# Properties
-#TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
