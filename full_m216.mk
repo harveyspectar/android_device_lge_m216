@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015 The Android Open-Source Project
+# Copyright (C) 2017 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,48 +17,30 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Inherit from m216 device
+$(call inherit-product, device/lge/m216/device.mk)
+
+# Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/lge/m216/m216-vendor.mk)
-
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
-#kernel
-TARGET_PREBUILT_KERNEL := device/lge/m216/recovery/kernel
-PRODUCT_COPY_FILES += \
-	$(TARGET_PREBUILT_KERNEL):kernel
-
-# Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.audio.fluence.voicecall=none \
-    persist.audio.fluence.voicerec=none \
-    persist.audio.fluence.speaker=none \
-    ro.qc.sdk.audio.fluencetype=none
-
-# Audio configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
-
-# GPS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
-
-# Lights
-PRODUCT_PACKAGES += \
-    lights.msm8916
-
-# Media
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
-
-# Thermal
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf
-
-# Wifi
-PRODUCT_COPY_FILES += \
-    device/lge/m216/wcnss/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # common msm8916
 $(call inherit-product, device/lge/msm8916-common/msm8916.mk)
+
+# Time Zone data for recovery
+PRODUCT_COPY_FILES += \
+    bionic/libc/zoneinfo/tzdata:root/system/usr/share/zoneinfo/tzdata
+
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += device/lge/m216/overlay
+
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=320
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := m216
@@ -66,3 +48,15 @@ PRODUCT_NAME := full_m216
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LG-K420
 PRODUCT_MANUFACTURER := LGE
+PRODUCT_GMS_CLIENTID_BASE := android-lge
+
+TARGET_VENDOR_PRODUCT_NAME := m216
+TARGET_VENDOR_DEVICE_NAME := m216
+
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=m216 PRODUCT_NAME=m216
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+BUILD_FINGERPRINT=lge/m216_global_com/m216:6.0/MRA58K/1630620076e17:user/release-keys \
+PRIVATE_BUILD_DESC="m216_global_com-user 6.0 MRA58K 1630620076e17 release-keys"
+
+TARGET_VENDOR := lge

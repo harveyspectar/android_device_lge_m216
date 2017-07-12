@@ -13,30 +13,40 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# inherit from common msm8916
--include device/lge/msm8916-common/BoardConfigCommon.mk
 
+# inherit from common msm8916
+include device/lge/msm8916-common/BoardConfigCommon.mk
+
+LOCAL_PATH := device/lge/m216
+
+# OTA
+TARGET_OTA_ASSERT_DEVICE := m216 #TODO: add more models
+
+#Kernel TODO:fix this
 TARGET_KERNEL_CONFIG := m216n_kt_kr_defconfig
-BOARD_KERNEL_SEPARATED_DT := true
+TARGET_KERNEL_SOURCE := kernel/lge/m216
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824      # 24576 * 1024 mmcblk0p18
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824  # 24576 * 1024 mmcblk0p19
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560  # 2621440 * 1024 mmcblk0p37
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12285097984 # 11997166 * 1024 mmcblk0p39
-TARGET_KERNEL_SOURCE := kernel/lge/nougat
-
-# Recovery
-BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_USERIMAGES_USE_EXT4 := true
 #TARGET_USERIMAGES_USE_F2FS := true
-TARGET_PREBUILT_KERNEL := device/lge/m216/recovery/kernel
 
-# Vold
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
-# TWRP
-TW_THEME := portrait_hdpi
-TARGET_RECOVERY_QCOM_RTC_FIX := true
-TW_SCREEN_BLANK_ON_BOOT := true
-TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+
+# NFC
+BOARD_NFC_CHIPSET := pn547
+BOARD_NFC_DEVICE := "/dev/pn547"
+
+# Properties
+TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
