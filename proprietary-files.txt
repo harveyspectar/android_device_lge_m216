@@ -52,22 +52,21 @@ vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
 vendor/lib/libaudcal.so
 vendor/lib/libFlacSwDec.so
+vendor/bin/audioflacapp
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 
 # Bluetooth
-bin/btnvtool
+#bin/btnvtool
 bin/hci_qcomm_init
 vendor/lib/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
 lib/hw/camera.msm8916.so
-lib/libarcsoft_beauty_shot.so
 lib/libHDR.so
 lib/libmm-qcamera.so
-lib/libmmcamera_hi841.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
 lib/libmorpho_image_stab31.so
@@ -79,13 +78,13 @@ vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
 vendor/lib/libmmcamera2_iface_modules.so
 vendor/lib/libmmcamera2_imglib_modules.so
-vendor/lib/libmmcamera2_isp_modules.so
 vendor/lib/libmmcamera2_is.so
+vendor/lib/libmmcamera2_isp_modules.so
 vendor/lib/libmmcamera2_pproc_modules.so
 vendor/lib/libmmcamera2_q3a_core.so
 vendor/lib/libmmcamera2_sensor_modules.so
-vendor/lib/libmmcamera2_stats_algorithm_sensors.so
 vendor/lib/libmmcamera2_stats_algorithm.so
+vendor/lib/libmmcamera2_stats_algorithm_sensors.so
 vendor/lib/libmmcamera2_stats_modules.so
 vendor/lib/libmmcamera2_vpe_module.so
 vendor/lib/libmmcamera2_wnr_module.so
@@ -93,21 +92,11 @@ vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_hdr_lib.so
 vendor/lib/libmmcamera_hi553_ff.so
-vendor/lib/libmmcamera_hi841_eeprom.so
-vendor/lib/libmmcamera_hi841.so
 vendor/lib/libmmcamera_imglib.so
-vendor/lib/libmmcamera_imx219_eeprom.so
-vendor/lib/libmmcamera_imx219.so
 vendor/lib/libmmcamera_mn34153.so
-vendor/lib/libmmcamera_ov5670_cowell.so
-vendor/lib/libmmcamera_ov5670_lgit.so
-vendor/lib/libmmcamera_ov5670.so
-vendor/lib/libmmcamera_ov8858_eeprom.so
 vendor/lib/libmmcamera_ov8858.so
-vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_pdaf.so
-vendor/lib/libmmcamera_s5k3l2_eeprom.so
-vendor/lib/libmmcamera_s5k3l2.so
+vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_wavelet_lib.so
@@ -137,50 +126,32 @@ vendor/lib/libactuator_dw9719.so
 vendor/lib/libactuator_wv517_camcorder.so
 vendor/lib/libactuator_wv517_camera.so
 vendor/lib/libactuator_wv517.so
-vendor/lib/libactuator_zc533_camcorder.so
-vendor/lib/libactuator_zc533_camera.so
-vendor/lib/libactuator_zc533.so
+vendor/lib/libactuator_zc533_hi842.so
+vendor/lib/libactuator_zc533_hi842_camcorder.so
+vendor/lib/libactuator_zc533_hi842_camera.so
+vendor/lib/libactuator_zc533_imx258_camcorder.so
+vendor/lib/libactuator_zc533_imx258_camera.so
+vendor/lib/libactuator_zc533_mn34153.so
+vendor/lib/libactuator_zc533_mn34153_camcorder.so
+vendor/lib/libactuator_zc533_mn34153_camera.so
 
 # Camera chromatix
-lib/libchromatix_hi841_common.so
-lib/libchromatix_hi841_default_video.so
-lib/libchromatix_hi841_preview.so
-lib/libchromatix_hi841_snapshot.so
-lib/libchromatix_hi841_snapshot_panorama.so
-lib/libchromatix_imx219_default_video.so
 vendor/lib/libchromatix_hi553_ff_common.so
 vendor/lib/libchromatix_hi553_ff_default_video.so
 vendor/lib/libchromatix_hi553_ff_liveshot.so
 vendor/lib/libchromatix_hi553_ff_snapshot.so
-vendor/lib/libchromatix_imx219_common.so
-vendor/lib/libchromatix_imx219_imtech_common.so
-vendor/lib/libchromatix_imx219_imtech_default_video.so
-vendor/lib/libchromatix_imx219_imtech_preview.so
-vendor/lib/libchromatix_imx219_imtech_skt_default_video.so
-vendor/lib/libchromatix_imx219_imtech_snapshot.so
-vendor/lib/libchromatix_imx219_mms_video.so
-vendor/lib/libchromatix_imx219_preview.so
-vendor/lib/libchromatix_imx219_skt_default_video.so
-vendor/lib/libchromatix_imx219_snapshot_panorama.so
-vendor/lib/libchromatix_imx219_snapshot.so
+vendor/lib/libchromatix_hi553_ff_vt.so
 vendor/lib/libchromatix_mn34153_common.so
+vendor/lib/libchromatix_mn34153_common_m.so
 vendor/lib/libchromatix_mn34153_default_video.so
+vendor/lib/libchromatix_mn34153_default_video_m.so
 vendor/lib/libchromatix_mn34153_liveshot.so
+vendor/lib/libchromatix_mn34153_liveshot_m.so
 vendor/lib/libchromatix_mn34153_preview.so
+vendor/lib/libchromatix_mn34153_preview_m.so
 vendor/lib/libchromatix_mn34153_snapshot.so
-vendor/lib/libchromatix_ov5670_common.so
-vendor/lib/libchromatix_ov5670_cowell_common.so
-vendor/lib/libchromatix_ov5670_cowell_default_video.so
-vendor/lib/libchromatix_ov5670_cowell_liveshot.so
-vendor/lib/libchromatix_ov5670_cowell_skt_video.so
-vendor/lib/libchromatix_ov5670_cowell_snapshot.so
-vendor/lib/libchromatix_ov5670_default_video.so
-vendor/lib/libchromatix_ov5670_lgit_common.so
-vendor/lib/libchromatix_ov5670_lgit_default_video.so
-vendor/lib/libchromatix_ov5670_lgit_liveshot.so
-vendor/lib/libchromatix_ov5670_lgit_snapshot.so
-vendor/lib/libchromatix_ov5670_liveshot.so
-vendor/lib/libchromatix_ov5670_snapshot.so
+vendor/lib/libchromatix_mn34153_snapshot_m.so
+vendor/lib/libchromatix_mn34153_snapshot_panorama_m.so
 vendor/lib/libchromatix_ov8858_common.so
 vendor/lib/libchromatix_ov8858_default_video.so
 vendor/lib/libchromatix_ov8858_hfr_120fps.so
@@ -189,11 +160,7 @@ vendor/lib/libchromatix_ov8858_hfr_90fps.so
 vendor/lib/libchromatix_ov8858_liveshot.so
 vendor/lib/libchromatix_ov8858_preview.so
 vendor/lib/libchromatix_ov8858_snapshot.so
-vendor/lib/libchromatix_s5k3l2_common.so
-vendor/lib/libchromatix_s5k3l2_default_video.so
-vendor/lib/libchromatix_s5k3l2_preview.so
-vendor/lib/libchromatix_s5k3l2_snapshot_panorama.so
-vendor/lib/libchromatix_s5k3l2_snapshot.so
+vendor/lib/libchromatix_ov8858_vt.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -204,16 +171,6 @@ etc/firmware/cpp_firmware_v1_4_0.fw
 # DRM
 bin/qseecomd
 lib/drm/libdrmwvmplugin.so
-vendor/firmware/keymaster/keymaster.b00
-vendor/firmware/keymaster/keymaster.b01
-vendor/firmware/keymaster/keymaster.b02
-vendor/firmware/keymaster/keymaster.b03
-vendor/firmware/keymaster/keymaster.mdt
-vendor/firmware/widevine.b00
-vendor/firmware/widevine.b01
-vendor/firmware/widevine.b02
-vendor/firmware/widevine.b03
-vendor/firmware/widevine.mdt
 vendor/lib/libdrmdecrypt.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
@@ -242,7 +199,7 @@ lib/libloc_core.so
 lib/libloc_ds_api.so
 lib/libloc_eng.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
-vendor/bin/slim_ap_daemon
+vendor/bin/slim_daemon
 vendor/lib/hw/flp.default.so
 vendor/lib/libdataitems.so
 vendor/lib/libflp.so
@@ -354,14 +311,6 @@ bin/time_daemon
 vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
-# WCNSS
-etc/firmware/wcnss.b00
-etc/firmware/wcnss.b01
-etc/firmware/wcnss.b02
-etc/firmware/wcnss.b04
-etc/firmware/wcnss.b06
-etc/firmware/wcnss.b09
-etc/firmware/wcnss.b10
-etc/firmware/wcnss.b11
-etc/firmware/wcnss.mdt
-
+# NFC
+vendor/firmware/BCM20795A1_001.002.00105_LiteFirmware_Unsigned_configdata.ncd
+vendor/firmware/BCM20795A2_001.003.025.0005.0049_Generic_I2C_NCD_Signed_configdata.ncd
