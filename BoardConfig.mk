@@ -22,8 +22,8 @@ LOCAL_PATH := device/lge/m216
 # OTA
 TARGET_OTA_ASSERT_DEVICE := m216 #TODO: add more models
 
-#Kernel TODO:fix this
-TARGET_KERNEL_CONFIG := m216n_kt_kr_defconfig
+#Kernel
+TARGET_KERNEL_CONFIG := m216_defconfig
 TARGET_KERNEL_SOURCE := kernel/lge/msm8916
 
 # Partitions
