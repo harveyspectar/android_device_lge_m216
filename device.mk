@@ -69,6 +69,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wcnss/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.target.rc
+
 # Camera
 PRODUCT_PACKAGES += \
     libmm-qcamera \
