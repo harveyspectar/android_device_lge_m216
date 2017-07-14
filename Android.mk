@@ -18,4 +18,17 @@ ifneq ($(filter m216,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
+# Create links for keymaster
+$(shell mkdir -p $(TARGET_OUT)/vendor/firmware/keymaster; \
+    ln -sf /firmware/image/keymaste.b00 \
+        $(TARGET_OUT)/vendor/firmware/keymaster/keymaster.b00;\
+    ln -sf /firmware/image/keymaste.b01 \
+        $(TARGET_OUT)/vendor/firmware/keymaster/keymaster.b01;\
+    ln -sf /firmware/image/keymaste.b02 \
+        $(TARGET_OUT)/vendor/firmware/keymaster/keymaster.b02;\
+    ln -sf /firmware/image/keymaste.b03 \
+        $(TARGET_OUT)/vendor/firmware/keymaster/keymaster.b03;\
+    ln -sf /firmware/image/keymaste.mdt \
+        $(TARGET_OUT)/vendor/firmware/keymaster/keymaster.mdt)
+
 endif
