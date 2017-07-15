@@ -24,7 +24,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
-    nfc_nci.pn54x.default \
+    nfc_nci.bcm2079x.default \
+    libnfc-nci \
     Tag
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -78,3 +79,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmm-qcamera \
     camera.msm8916
+
+# FM Radio
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
