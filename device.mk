@@ -22,10 +22,8 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
     NfcNci \
     nfc_nci.bcm2079x.default \
-    libnfc-nci \
     Tag
 
 # Stlport
