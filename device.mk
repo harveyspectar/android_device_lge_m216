@@ -28,9 +28,6 @@ PRODUCT_PACKAGES += \
     libnfc-nci \
     Tag
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.nfc_nci=pn54x
-
 # Stlport
 PRODUCT_PACKAGES += libstlport
 
