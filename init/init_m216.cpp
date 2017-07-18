@@ -49,32 +49,29 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-static void import_cmdline(char *name, int for_emulator)
+static void import_cmdline(const std::string& key,
+                           const std::string& value, bool for_emulator __attribute__((unused)))
 {
-    char *value = strchr(name, '=');
-    int name_len = strlen(name);
+    if (key.empty() || value.empty()) return;
     
-    if (value == 0) return;
-    *value++ = 0;
-    if (name_len == 0) return;
-    
-    if (!strcmp(name,"model.name") && !strcmp(value,"LG-K420ds")) {
+    if (key == "model.name" && value == "LG-K420ds")
         isDS = true;
-    }
-    if (!strcmp(name,"lge.sim_num") && !strcmp(value,"2")) {
+    
+    if (key == "lge.sim_num" && value == "2")
         num_sim = 2;
-    }
-    if (!strcmp(name,"lge.nfc") && !strcmp(value,"none")) {
+    
+    if (key == "lge.nfc" && value == "none")
         havenfc = false;
-    }
 }
 
 /* Target-Specific Dalvik Heap & HWUI Configuration */
 void target_ram() {
-    std::string ram;
+    //std::string ram;
 
-    ram = property_get("ro.boot.ram"); //ro.boot.ram??
-
+    //ram = property_get("ro.boot.ram"); //ro.boot.ram??
+    //if (isDS)
+    //    property_set("ro.boot.ram", "2GB");
+    
     // TODO: Some Models has different settings here as they have more ram
 }
 
