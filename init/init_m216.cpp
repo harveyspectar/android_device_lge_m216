@@ -34,6 +34,10 @@
 #include "log.h"
 #include "util.h"
 
+static bool isDS = false;
+static bool havenfc = true;
+static int num_sim = 1;
+
 void property_override(char const prop[], char const value[])
 {
     prop_info *pi;
@@ -45,21 +49,37 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+static void import_cmdline(char *name, int for_emulator)
+{
+    char *value = strchr(name, '=');
+    int name_len = strlen(name);
+    
+    if (value == 0) return;
+    *value++ = 0;
+    if (name_len == 0) return;
+    
+    if (!strcmp(name,"model.name") && !strcmp(value,"LG-K420ds")) {
+        isDS = true;
+    }
+    if (!strcmp(name,"lge.sim_num") && !strcmp(value,"2")) {
+        num_sim = 2;
+    }
+    if (!strcmp(name,"lge.nfc") && !strcmp(value,"none")) {
+        havenfc = false;
+    }
+}
+
 /* Target-Specific Dalvik Heap & HWUI Configuration */
 void target_ram() {
     std::string ram;
 
-    ram = property_get("ro.boot.ram");
+    ram = property_get("ro.boot.ram"); //ro.boot.ram??
 
     // TODO: Some Models has different settings here as they have more ram
 }
 
 void num_sims() {
-    std::string num_sim;
-
-    num_sim = property_get("lge.sim_num");
-
-    if (num_sim == "2") {
+   if (num_sim == 2) {
         property_set("persist.radio.multisim.config", "dsds");
         property_set("ro.hw.dualsim", "true");
     } else {
@@ -78,27 +98,31 @@ void vendor_load_properties()
     std::string sku;
     std::string radio;
     std::string device;
-    std::string num_sim;
-
+    
     //platform = property_get("ro.board.platform");
     //if (platform != ANDROID_TARGET)
     //    return;
 
+    import_kernel_cmdline(0, import_cmdline);
+    
     device_boot = property_get("ro.boot.device");
-    property_set("ro.hw.device", device_boot.c_str());
+    //property_set("ro.hw.device", device_boot.c_str());
 
     property_override("ro.product.device", "m216");
 
-    sku = property_get("model.name");
-    property_override("ro.product.model", sku.c_str());
-
+    if (isDS){
+        property_override("ro.product.model", "LG-K420ds");
+        sku = "LG-K420ds";
+    } else {
+        property_override("ro.product.model", "LG-K420n");
+        sku = "LG-K420n";
+    }
+    
     carrier = property_get("ro.boot.carrier");
-    property_set("ro.carrier", carrier.c_str());
+    //property_set("ro.carrier", carrier.c_str());
 
     radio = property_get("ro.boot.radio");
-    property_set("ro.hw.radio", radio.c_str());
-
-    num_sim = property_get("lge.sim_num");
+    //property_set("ro.hw.radio", radio.c_str());
 
     /* Common for all models */
     property_override("ro.build.product", "m216");
