@@ -75,11 +75,6 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     camera.msm8916
 
-# FM Radio
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
-
 # Get the long list of APNs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
