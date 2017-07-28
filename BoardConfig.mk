@@ -20,7 +20,7 @@ include device/lge/msm8916-common/BoardConfigCommon.mk
 LOCAL_PATH := device/lge/m216
 
 # OTA
-TARGET_OTA_ASSERT_DEVICE := m216 #TODO: add more models
+TARGET_OTA_ASSERT_DEVICE := m216,LG-K420ds,LG-K420n,LG-K420,LG-K10
 
 #Kernel
 TARGET_KERNEL_CONFIG := m216_global_com-perf_defconfig
