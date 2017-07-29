@@ -41,12 +41,6 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
-#start camera server as daemon
-
-service qcamerasvr /system/bin/mm-qcamera-daemon
-    class late_start
-    user camera
-    group camera system inet input graphics
 
 #enable zram
 on property:ro.config.zram=true
@@ -60,37 +54,8 @@ on init
 on property:ro.config.zram=true
     swapon_all fstab.qcom
 
-service qseecomd /system/bin/qseecomd
-   class core
-   user root
-   group root
-
-service perfd /system/vendor/bin/perfd
-   class main
-   user root
-   disabled
-
-service thermal-engine /system/vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   group root
-
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
-
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
-
 on boot
     start rmt_storage
-    insmod /system/lib/modules/adsprpc.ko
 # access permission for secure touch
     chmod 0660 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0020/secure_touch_enable
     chmod 0440 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-0020/secure_touch
@@ -107,19 +72,6 @@ on boot
     chmod 0664 /sys/class/power_supply/bms/current_now
     chmod 0664 /sys/class/power_supply/bms/voltage_ocv
 
-service ppd /system/bin/mm-pp-daemon
-    class late_start
-    disabled
-    user system
-    socket pps stream 0660 system system
-    group system graphics
-
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
-
 on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
@@ -128,17 +80,4 @@ on charger
     chmod 0664 /sys/class/power_supply/bms/current_now
     chmod 0664 /sys/class/power_supply/bms/voltage_ocv
     start vm_bms
-    load_all_props
     start qcom-post-boot
-
-service hbtp /system/vendor/bin/hbtp_daemon
-   class main
-   user system
-   group system
-   disabled
-
-service dts_configurator /system/bin/dts_configurator
-   class main
-   user system
-   group system
-   oneshot
