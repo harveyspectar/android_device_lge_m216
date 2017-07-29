@@ -22,6 +22,7 @@ vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/libsystem_health_mon.so
 vendor/lib/libxml.so
+vendor/lib/liblqe.so
 
 # Venus (media) firmware
 etc/firmware/venus.b00
@@ -106,6 +107,7 @@ vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/liboemcamera.so
 vendor/lib/libqomx_jpegenc.so
+vendor/lib/libSJlowlight.so
 
 # Camera autofocus
 vendor/lib/libactuator_dw9714_camcorder.so
@@ -288,7 +290,6 @@ vendor/lib/libqmi.so
 vendor/lib/libsmemlog.so
 
 # Radio
-#-priv-app/shutdownlistener/shutdownlistener.apk
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
@@ -299,6 +300,9 @@ etc/permissions/qcrilhook.xml
 bin/sensord
 lib/hw/sensors.msm8916.so
 
+# Keystore
+vendor/lib/libsecureui.so
+vendor/lib/libssd.so
 
 # Thermal
 vendor/bin/thermal-engine
@@ -308,9 +312,15 @@ vendor/lib/libthermalioctl.so
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
-vendor/lib/libtime_genoff.so
+-vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
 # NFC
 vendor/firmware/BCM20795A1_001.002.00105_LiteFirmware_Unsigned_configdata.ncd
 vendor/firmware/BCM20795A2_001.003.025.0005.0049_Generic_I2C_NCD_Signed_configdata.ncd
+
+# FM Radio
+bin/fm_qsoc_patches
+
+# VM BMS
+bin/vm_bms
