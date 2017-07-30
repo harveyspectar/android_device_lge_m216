@@ -23,7 +23,7 @@ LOCAL_PATH := device/lge/m216
 TARGET_OTA_ASSERT_DEVICE := m216,LG-K420ds,LG-K420n,LG-K420,LG-K10
 
 #Kernel
-TARGET_KERNEL_CONFIG := m216_global_com-perf_defconfig
+TARGET_KERNEL_CONFIG := m216_defconfig
 TARGET_KERNEL_SOURCE := kernel/lge/msm8916
 
 # Partitions
