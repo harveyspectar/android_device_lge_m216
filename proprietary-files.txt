@@ -107,7 +107,7 @@ vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/liboemcamera.so
 vendor/lib/libqomx_jpegenc.so
-vendor/lib/libSJlowlight.so
+lib/libSJlowlight.so
 
 # Camera autofocus
 vendor/lib/libactuator_dw9714_camcorder.so
