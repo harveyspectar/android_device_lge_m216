@@ -127,7 +127,12 @@ void vendor_load_properties()
     num_sims();
 
     if (sku == "LG-K420ds") {
-        //TODO
+        //IMS
+        property_set("persist.radio.jbims", "1");
+        property_set("persist.radio.ROTATION_ENABLE", "1");
+        property_set("persist.radio.VT_ENABLE", "1");
+        property_set("persist.radio.VT_HYBRID_ENABLE", "1");
+        property_set("persist.radio.VT_USE_MDM_TIME", "0");
     }
 
     if (sku == "LG-K420n") {
