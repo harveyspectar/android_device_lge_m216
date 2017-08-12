@@ -22,4 +22,6 @@
 #define BLUETOOTH_QCOM_SW TRUE
 #define BLUETOOTH_QCOM_LE_INTL_SCAN TRUE
 #define BTC_INCLUDED TRUE
+#define BTM_WBS_INCLUDED TRUE       /* Enable WBS */
+#define BTIF_HF_WBS_PREFERRED TRUE  /* Use WBS    */
 #endif
